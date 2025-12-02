@@ -42,6 +42,7 @@
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
+        "interval": 1,
 	"on-click": "sh ~/scripts/rofi-wifi-menu/rofi-wifi-menu.sh"
 	 
     },
@@ -51,6 +52,7 @@
     },
     "memory": {
         "format": "  {}%",
+        "interval": 1,
 	"tooltip": true
     },
     "temperature": {
@@ -70,6 +72,7 @@
             "warning": 30,
             "critical": 15
         },
+        "interval": 1,
         "format": "{icon}  {capacity}%",
         "format-full": "{icon}  {capacity}%",
         "format-charging": "  {capacity}%",
