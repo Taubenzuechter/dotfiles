@@ -7,7 +7,7 @@
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces", "idle_inhibitor", "pulseaudio", "backlight", "network", "bluetooth", "custom/updates"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["hyprland/submap", "hyprland/language", "cpu", "memory", "temperature", "battery", "tray", "clock"],
+    "modules-right": ["hyprland/submap", "hyprland/language", "cpu", "memory", "temperature", "battery", "tray", "clock", "custom/power"],
     // Modules configuration
      "hyprland/workspaces": {
          "disable-scroll": true,
@@ -111,11 +111,11 @@
     },
     "network": {
 //        "interface": "wlan0", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ",
+        "format-wifi": " {essid}",
         "format-ethernet": "{ipaddr}/{cidr} ",
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
+        "format-disconnected": "⚠ Disconnected",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
@@ -166,5 +166,11 @@
         },
         "exec-if": "which waybar-module-pacman-updates",
         "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300 --tooltip-align-columns 'Source Code Pro' --color-semver-updates F15D22,FFCE51,73C48F,48B9C7,88807C"
+    },
+        "custom/power": {
+        "format": " ⏻ ",
+        "tooltip": false,
+        "on-click": "sh ~/scripts/powermenu.sh",
+        "on-click-right": "killall rofi"
     }
 }
