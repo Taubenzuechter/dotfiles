@@ -1,184 +1,104 @@
-@define-color rosewater #f5e0dc;
-@define-color flamingo #f2cdcd;
-@define-color pink #f5c2e7;
-@define-color mauve #cba6f7;
-@define-color red #f38ba8;
-@define-color maroon #eba0ac;
-@define-color peach #fab387;
-@define-color yellow #f9e2af;
-@define-color green #a6e3a1;
-@define-color teal #94e2d5;
-@define-color sky #89dceb;
-@define-color sapphire #74c7ec;
-@define-color blue #89b4fa;
-@define-color lavender #b4befe;
-@define-color text #cdd6f4;
-@define-color subtext1 #bac2de;
-@define-color subtext0 #a6adc8;
-@define-color overlay2 #9399b2;
-@define-color overlay1 #7f849c;
-@define-color overlay0 #6c7086;
-@define-color surface2 #585b70;
-@define-color surface1 #45475a;
-@define-color surface0 #313244;
-@define-color base #1e1e2e;
-@define-color mantle #181825;
-@define-color base-opacity rgba(30, 30, 46, 0.8);
+@define-color base00 #181818;
+@define-color base01 #2b2e37;
+@define-color base02 #3b3e47;
+@define-color base03 #585858;
+@define-color base04 #b8b8b8;
+@define-color base05 #d8d8d8;
+@define-color base06 #e8e8e8;
+@define-color base07 #f8f8f8;
+@define-color base08 #ab4642;
+@define-color base09 #dc9656;
+@define-color base0A #f7ca88;
+@define-color base0B #a1b56c;
+@define-color base0C #86c1b9;
+@define-color base0D #7cafc2;
+@define-color base0E #ba8baf;
+@define-color base0F #a16946;
 
-/* Global styles */
 * {
-  font-size: 14;
-  font-weight: bold;
-  padding: 0;
-  margin: 0;
+  transition: none;
+  box-shadow: none;
 }
 
 #waybar {
-  border: none;
-  margin-top: 3px;
-  background-color: @base;
-  color: @text;
-  font-family: "JetBrainsMono Nerd Font";
+	font-family: 'Source Code Pro', sans-serif;
+	font-size: 1.2em;
+	font-weight: 400;
+  color: @base04;
+  background: @base01;
 }
 
-/* Загальні стилі для елементів */
-#custom-icon,
-#workspaces,
-#temperature,
-#cpu,
-#memory,
-#battery,
-#backlight,
-#wireplumber,
-#custom-notification,
-#language,
-#clock,
-#network,
-#bluetooth,
-#custom-power,
-#tray {
-  margin: 5px 4px;
-  padding: 0px 5px;
-}
-
-/* Custom icon (left)*/
-#custom-icon {
-  color: @blue;
-  font-size: 18px;
-  margin-left: 5px;
-  padding: 0px 11px 0px 8px;
-}
-
-/* Workspaces */
 #workspaces {
-    padding: 0px 8px;
-    background-color: @surface0;
-    border-radius: 12px;
+  margin: 0 4px;
 }
 
 #workspaces button {
-  color: @overlay0;
-  margin: 0px 2px;
-  padding: 0px 4px;
-  border-radius: 0px;
-  border-bottom: 2px solid transparent;
+  margin: 4px 0;
+  padding: 0 4px;
+  color: @base05;
+}
+
+#workspaces button.visible {
 }
 
 #workspaces button.active {
-  color: @rosewater;
-  border-bottom: 2px solid @surface2;
+  border-radius: 4px;
+  background-color: @base02;
 }
 
-#temperature {
-  color: @sapphire;
-  margin-left: 4px;
+#workspaces button.urgent {
+  color: rgba(238, 46, 36, 1);
 }
 
-#cpu {
+#tray {
+  margin: 4px 4px 4px 4px;
+  border-radius: 4px;
+  background-color: @base02;
 }
 
-#memory {
-  color: @peach;
+#tray * {
+  padding: 0 6px;
+  border-left: 1px solid @base00;
+}
+
+#tray *:first-child {
+  border-left: none;
+}
+
+#mode, #battery, #cpu, #memory, #network, #bluetooth, #pulseaudio, #idle_inhibitor, #backlight, #custom-storage, #custom-updates, #custom-weather, #custom-mail, #clock, #temperature, #language{
+  margin: 4px 2px;
+  padding: 0 6px;
+  background-color: @base02;
+  border-radius: 4px;
+  min-width: 20px;
+}
+
+#pulseaudio.muted {
+  color: @base0F;
+}
+
+#pulseaudio.bluetooth {
+  color: @base0C;
+}
+
+#clock {
+  margin-left: 0px;
+  margin-right: 4px;
+  background-color: transparent;
+}
+
+#temperature.critical {
+  color: @base0F;
+}
+
+#window {
+  font-size: 0.9em;
+	font-weight: 400;
+	font-family: sans-serif;
 }
 
 #language {
-  color: #ffffff;
-}
-
-#network {
-  color: @blue;
-}
-
-#network.wifi {
-  color: @sky;
-}
-
-#network.ethernet {
-  color: @blue;
-}
-
-#network.disconnected {
-  color: @maroon;
-}
-
-#network.disabled {
-  color: @surface0;
-}
-
-/* Power */
-#custom-power {
-  color: @red;
-  padding: 0px 3px 0px 7px;
-}
-
-/* Tray */
-
-
-/* Clock & Window */
-#clock {
-  color: @overlay0;
-  background-color: @surface0;
-  padding: 0px 10px;
-  border-radius: 12px;
-}
-
-#clock:hover {
-  background-color: @surface1;
-}
-
-/* Backlight */
-#backlight {
-}
-
-#custom-notification {
-  padding: 0px 3px 0px 7px;
-}
-
-/* Hover-ефекти */
-#custom-icon:hover,
-#temperature:hover,
-#cpu:hover,
-#memory:hover,
-#battery:hover,
-#backlight:hover,
-#wireplumber:hover,
-#custom-notification:hover,
-#language:hover,
-#network:hover,
-#custom-power:hover,
-#bluetooth:hover,
-#tray:hover {
-  background: @surface0;
-  border-radius: 12px;
-}
-
-tooltip {
-  background-color: @base-opacity;
-  /* Catppuccin Mocha: base */
-  color: @text;
-  /* Catppuccin Mocha: text */
-  border: 2px solid @lavender;
-  font-size: 13px;
-  padding: 10px;
-  border-radius: 0px;
+	font-size: 0.9em;
+	font-weight: 500;
+	letter-spacing: -1px;
 }
